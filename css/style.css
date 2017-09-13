@@ -1,0 +1,28 @@
+table {
+	font-family: arial;
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+th {
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 0.5rem;
+	background: #adeb8b;
+    border-top: 0.1rem solid #aabcfe;
+    border-bottom: 0.1rem solid #fff;
+    color: #039;
+}
+
+td {
+	padding: 0.5rem;
+	background: #cffb8b;
+	border-bottom: 0.1rem solid #fff;
+    color: #669;
+}
+
+tr:hover td {
+	background: #aaaaff;
+	color: #339;
+}
