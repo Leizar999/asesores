@@ -1,18 +1,22 @@
 <?php
 
-$sql = "SELECT * FROM mantenimiento";
-$cursor = mysqli_query($conexion, $sql) or die("Error al ejecutar la consulta: " . mysqli_error($conexion));
-$fila = mysqli_fetch_assoc($cursor);
+include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/model/db.php");
 
-while($fila){
+$bbdd = DB::getInstance();
+$bbdd->stablishUTF8();
+$query = "SELECT * FROM mantenimiento";
+$cursor = $bbdd->consult($query);
+$row = $bbdd->fetch($cursor);
+
+while($row){
     echo "<tr>";
-    foreach ($fila as $valor) {
+    foreach ($row as $valor) {
         echo "<td> $valor </td>";
     }
     echo "</tr>";
-    $fila = mysqli_fetch_assoc($cursor);
+    $row = $bbdd->fetch($cursor);
 }
 
-mysqli_close($conexion);
+$bbdd->closeConnection($connection);
 
 ?>
