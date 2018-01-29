@@ -19,6 +19,11 @@ $row = $bbdd->fetch($result);
         <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/head.php"); ?>
     </head>
     <body>
+        
+        <header>
+            <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/header.php"); ?>
+        </header>
+
         <div class='table-responsive'>
             <table class='table'>
                 <tr>

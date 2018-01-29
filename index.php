@@ -8,7 +8,7 @@
 
 <body>
 	<div class="jumbotron text-center">
-		<h1>ASESORES LOPD</h1>
+		<img src="images/logo.png" alt="Logo asesores">
 	</div>
 	<div class="col-md-12 text-center">
 		<button type="button" name="button" class="btn btn-primary" id="insertarCliente">INSERTAR CLIENTE</button>

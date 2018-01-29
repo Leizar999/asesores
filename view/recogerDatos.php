@@ -9,7 +9,11 @@
 
     <body>
 
-        <div class="col-md-6 col-md-offset-3">
+        <header>
+            <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/header.php"); ?>
+        </header>
+
+        <div class="col-md-6 mx-auto container">
             <div class="panel panel-primary">
 
                 <div class="panel-heading text-center">
@@ -48,7 +52,7 @@
                             <label for="correo">CORREO</label>
                             <input type="email" name="correo" value="" class="form-control" id="correo" class="form-control" required>
                         </div>
-                        <div class="form-group col-md-offset-5">
+                        <div class="text-center">
                             <button type="submit" name="button" class="btn btn-primary btn-lg">ENVIAR DATOS</button>
                         </div>
                     </form>
