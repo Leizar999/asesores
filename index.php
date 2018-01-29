@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-md-12 text-center">
 		<button type="button" name="button" class="btn btn-primary" id="insertarCliente">INSERTAR CLIENTE</button>
-		<button type="button" name="button" class="btn btn-primary" id="consultarFactura">CONSULTAR FACTURA</button>
+		<button type="button" name="button" class="btn btn-primary" id="consultarMantenimiento">CONSULTAR MANTENIMIENTO</button>
 		<button type="button" name="button" class="btn btn-primary" id="verClientes">VER CLIENTES</button>
 
 	</div>

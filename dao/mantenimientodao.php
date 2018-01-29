@@ -1,5 +1,5 @@
 <?php
-	class UserDAO {
+	class MantenimientoDAO {
 
 		public static function getUser($login){
 			$bbdd = DB::getInstance();
@@ -21,11 +21,11 @@
 			return $user;
 		}
 
-		public static function getUsers(){
+		public static function getMantenimiento(){
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
 
-			$sql = "SELECT * FROM usuarios;";
+			$sql = "SELECT * FROM mantenimiento;";
 
 			$result = $bbdd->consult($sql);
 			return $result;

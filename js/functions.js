@@ -5,6 +5,10 @@ $(document).ready(function () {
         window.open("/asesores/view/recogerDatos.php", "_self");
     });
 
+    $("#consultarMantenimiento").on("click", function(){
+        window.open("/asesores/view/mantenimiento.php", "_self");
+    });
+
     $("#verClientes").on("click", function(){
         window.open("/asesores/view/cliente.php", "_self");
     });

@@ -5,7 +5,7 @@
             <a class="nav-link" href="../view/recogerDatos.php">INSERTAR USUARIO</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">CONSULTAR FACTURAS</a>
+            <a class="nav-link" href="../view/mantenimiento.php">CONSULTAR FACTURAS</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../view/cliente.php">VER CLIENTES</a>
