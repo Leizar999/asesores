@@ -1,4 +1,9 @@
-.navbar {
-	background-color: red;
-	color: black;
+.navbar ul li a {
+	font-size: 1.5rem;
+	margin-left: 2rem;
+}
+
+.navbar ul li a:hover {
+	background-color: grey;
+	color: white;
 }
