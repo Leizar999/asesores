@@ -13,6 +13,8 @@
             <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/header.php"); ?>
         </header>
 
+        <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/view/messages.php"); ?>
+
         <div class="col-md-6 mx-auto container">
             <div class="panel panel-primary">
 
@@ -31,11 +33,6 @@
                         <div class="form-group">
                             <label for="nombre">NOMBRE</label>
                             <input type="text" name="nombre" value="" class="form-control" id="nombre" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="apellidos">APELLIDOS</label>
-                            <input type="text" name="apellidos" value="" class="form-control" id="apellidos" class="form-control" required>
                         </div>
 
                         <div class="form-group">

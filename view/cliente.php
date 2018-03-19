@@ -10,7 +10,6 @@ $row = $bbdd->fetch($result);
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,21 +17,23 @@ $row = $bbdd->fetch($result);
         <title>Asesores LOPD</title>
         <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/head.php"); ?>
     </head>
-    <body>
+    <body class="googoose-wrapper">
         
         <header>
             <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/templates/header.php"); ?>
         </header>
 
+        <?php include ($_SERVER["DOCUMENT_ROOT"] . "/asesores/view/messages.php"); ?>
+
         <div class='table-responsive'>
             <table class='table'>
                 <tr>
                     <th>NIF</th>
-                    <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
+                    <th>NOMBRE / RAZÓN SOCIAL</th>
                     <th>TELÉFONO</th>
                     <th>DIRECCIÓN</th>
                     <th>CORREO</th>
+                    <th>¿BORRAR?</th>
                 </tr>
 
                 <?php
@@ -40,10 +41,10 @@ $row = $bbdd->fetch($result);
                         echo "<tr>";
                         echo "<td>" . $row["nif"] . "</td>";
                         echo "<td>" . $row["nombre"] . "</td>";
-                        echo "<td>" . $row["apellidos"] . "</td>";
                         echo "<td>" . $row["telefono"] . "</td>";
                         echo "<td>" . $row["direccion"] . "</td>";
                         echo "<td><a href='mailto:" . $row["correo"] . "'>" . $row["correo"] . "</a></td>";
+                        echo "<td><button id='" . $row["nif"] . "' tipo='usuario' class='btn btn-danger' name='erase'>BORRAR</button></td>";
                         echo "</tr>";
 
                         $row = $bbdd->fetch($result);

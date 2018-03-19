@@ -1,28 +1,20 @@
 <?php
     class FacturaController {
         private $factura;
-        private $mantenimiento;
 
         //DEFAULT CONSTRUCTOR
         public function __construct(){
             $this->factura = "";
-            $this->mantenimiento = "";
         }
 
         //SETTERS
         public function setFactura($factura){
             $this->factura = $factura;
         }
-        public function setMantenimiento($mantenimiento){
-            $this->mantenimiento = $mantenimiento;
-        }
 
         //GETTERS
         public function getFactura(){
             return $this->factura;
-        }
-        public function getMantenimiento(){
-            return $this->mantenimiento;
         }
 
         //FUNCTIONS

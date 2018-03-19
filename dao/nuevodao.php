@@ -1,43 +1,47 @@
 <?php
-	class UserDAO {
+	class NuevoDAO {
 
-		public static function getUser($nif){
+		public static function getUser($login){
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "SELECT * FROM usuarios WHERE nif = '$nif';";
-			$result = $bbdd->consult($sql);
-
-			if($bbdd->numRows($result) > 0){
-				$row = $bbdd->fetch($result);
-			}
-
-			return $row;
-		}
-
-		public static function getUsers(){
-			$bbdd = DB::getInstance();
-			$bbdd->stablishUTF8();
-
-			$sql = "SELECT * FROM usuarios;";
-
-			$result = $bbdd->consult($sql);
-			return $result;
-		}
-
-		public static function countUsers($role, $department){
-			$bbdd = DB::getInstance();
-			$bbdd->stablishUTF8();
-
-			if($role == "admin"){
-				$sql = "SELECT COUNT(*) AS usuarios FROM usuarios;";
-			} else {
-				$sql = "SELECT COUNT(*) AS usuarios FROM usuarios WHERE department = '$department';";
-			}
-
+			$sql = "SELECT * FROM mantenimiento WHERE login = '$login';";
 			$result = $bbdd->consult($sql);
 			$user = new User();
 
+			if($bbdd->numRows($result) > 0){
+				$row = $bbdd->fetch($result);
+				$user->setLogin($row["login"]);
+				$user->setName($row["name"]);
+				$user->setSurname($row["surname"]);
+				$user->setDepartment($row["department"]);
+				$user->setRole($row["role"]);
+				$user->setEmail($row["email"]);
+			}
+
+			return $user;
+		}
+
+		public static function getFactura(){
+			$bbdd = DB::getInstance();
+			$bbdd->stablishUTF8();
+
+			$sql = "SELECT * FROM nuevo;";
+
+			$result = $bbdd->consult($sql);
 			return $result;
+		}
+
+		public static function getBill($id){
+			$bbdd = DB::getInstance();
+			$bbdd->stablishUTF8();
+
+			$sql = "SELECT * FROM nuevo WHERE id = '$id';";
+
+			$result = $bbdd->consult($sql);
+
+			$row = $bbdd->fetch($result);
+
+			return $row;
 		}
 
 		public function checkLogin(){
@@ -54,11 +58,11 @@
 			return $valid;
 		}
 
-		public function insertUser($nif, $nombre, $telefono, $direccion, $correo){
+		public function insertFactura($cif, $nombre, $direccion, $importe, $iva, $total, $cobro){
 			$valid = false;
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "INSERT INTO usuarios (nif, nombre, telefono, direccion, correo) VALUES ('$nif', '$nombre', '$telefono', '$direccion', '$correo')";
+			$sql = "INSERT INTO nuevo (cif, nombre, direccion, importe, iva, total, cobro) VALUES ('$cif', '$nombre', '$direccion', '$importe', '$iva', '$total', '$cobro')";
 
 			$result = $bbdd->consult($sql);
 
@@ -73,7 +77,7 @@
 			$valid = false;
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "DELETE FROM usuarios WHERE nif = '$id'";
+			$sql = "DELETE FROM nuevo WHERE id = '$id'";
 
 			$result = $bbdd->consult($sql);
 

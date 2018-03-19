@@ -4,7 +4,7 @@
 		public static function getUser($login){
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "SELECT * FROM usuarios WHERE login = '$login';";
+			$sql = "SELECT * FROM mantenimiento WHERE login = '$login';";
 			$result = $bbdd->consult($sql);
 			$user = new User();
 
@@ -21,7 +21,7 @@
 			return $user;
 		}
 
-		public static function getMantenimiento(){
+		public static function getFactura(){
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
 
@@ -31,20 +31,17 @@
 			return $result;
 		}
 
-		public static function countUsers($role, $department){
+		public static function getBill($id){
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
 
-			if($role == "admin"){
-				$sql = "SELECT COUNT(*) AS usuarios FROM usuarios;";
-			} else {
-				$sql = "SELECT COUNT(*) AS usuarios FROM usuarios WHERE department = '$department';";
-			}
+			$sql = "SELECT * FROM mantenimiento WHERE id = '$id';";
 
 			$result = $bbdd->consult($sql);
-			$user = new User();
 
-			return $result;
+			$row = $bbdd->fetch($result);
+
+			return $row;
 		}
 
 		public function checkLogin(){
@@ -61,11 +58,11 @@
 			return $valid;
 		}
 
-		public function insertUser($nif, $nombre, $apellidos, $telefono, $direccion, $correo){
+		public function insertFactura($cif, $nombre, $direccion, $importe, $iva, $total, $cobro){
 			$valid = false;
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "INSERT INTO usuarios (nif, nombre, apellidos, telefono, direccion, correo) VALUES ('$nif', '$nombre', '$apellidos', '$telefono', '$direccion', '$correo')";
+			$sql = "INSERT INTO mantenimiento (cif, nombre, direccion, importe, iva, total, cobro) VALUES ('$cif', '$nombre', '$direccion', '$importe', '$iva', '$total', '$cobro')";
 
 			$result = $bbdd->consult($sql);
 
@@ -76,11 +73,11 @@
 			return $valid;
 		}
 
-		public function deleteUser($login){
+		public function delete($id){
 			$valid = false;
 			$bbdd = DB::getInstance();
 			$bbdd->stablishUTF8();
-			$sql = "DELETE FROM users WHERE login = '$login'";
+			$sql = "DELETE FROM mantenimiento WHERE id = '$id'";
 
 			$result = $bbdd->consult($sql);
 
